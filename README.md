@@ -1,34 +1,47 @@
 # CampusWatch SNMP
 
-**CampusWatch SNMP** é um sistema leve para monitoramento ativo do tráfego e saúde dos switches que compõem a infraestrutura de rede escolar.
+SNMP-based monitoring concept for school network infrastructure, designed for educational labs and hackathon scenarios.
 
-Com foco em estabilidade, o sistema atua como o cérebro central para garantir que gargalos na rede sejam detectados antes de afetarem as aulas.
+## Overview
 
-## Arquitetura: Manager vs Agents
+CampusWatch SNMP is a lightweight monitoring project for observing traffic and health indicators from switches and routers in a school or campus network. It is designed as a teaching artifact: students can connect a dashboard to an API, poll device metrics, and reason about operational visibility.
 
-O protocolo SNMP (Simple Network Management Protocol) baseia-se na dinâmica de Gerente e Agentes:
-- **SNMP Agents**: São os switches e roteadores espalhados pela escola. Eles coletam dados de si mesmos (ex: tráfego nas portas, uso de CPU) e guardam na sua MIB (Management Information Base).
-- **SNMP Manager (Esta API)**: É o nosso backend em Python. Ele ativamente "pergunta" (polling via SNMP GET/WALK) aos agentes como está o tráfego naquele momento.
+## Problem
 
-## O Desafio (Hackathon)
+Educational networks depend on stable connectivity, but many failures are discovered only after they affect classes. A monitoring baseline helps teams detect traffic bottlenecks, device overload, and degraded links earlier.
 
-Este repositório contém o esqueleto do Manager (Backend) e a base do Frontend (React). O desafio para os alunos no Hackathon é:
+## Solution Concept
 
-1. **Frontend (Dashboard)**: Os alunos deverão estruturar o React (pasta `dashboard/`) para consumir a API. O foco é exibir gráficos de linha mostrando o tráfego por porta.
-2. **Polling Assíncrono**: Como o tráfego é contínuo, a interface gráfica precisará ser programada para fazer requisições assíncronas (ex: `setInterval` com `fetch`/`axios` ou WebSockets) para atualizar o dashboard automaticamente de tempos em tempos, simulando uma sala de controle real (NOC).
+- Use SNMP agents on switches and routers as metric sources.
+- Implement a manager service that polls interface and health data.
+- Expose data to a dashboard for traffic and status visualization.
+- Use the project as a practical exercise in network observability.
 
-## Estrutura do Monorepo
+## Architecture
 
-*   `api/`: Backend em Python (FastAPI + PySNMP + SQLAlchemy) em Clean Architecture.
-*   `dashboard/`: Frontend gerado em React/Vite.
+- SNMP agents: network devices that expose MIB data.
+- SNMP manager: backend service responsible for polling.
+- Dashboard: frontend surface for charts, interface status, and alerts.
 
-## Instalação (Backend)
+## Suggested Stack
 
-```bash
-cd api
-python -m venv venv
-# Ative o venv
-pip install -r requirements.txt
-```
+- Python for polling and backend services.
+- React for dashboard experiments.
+- SNMP libraries for GET/WALK operations.
+- Charting library for traffic visualization.
 
-Boa caçada aos gargalos!
+## Development Direction
+
+- Implement polling loops with safe timeouts.
+- Add device inventory configuration.
+- Add API endpoints for current status and historical samples.
+- Add dashboard charts for traffic per port.
+- Add tests for parsing and polling logic.
+
+## Professional Context
+
+This repository connects network monitoring, SNMP, education technology, and practical infrastructure troubleshooting.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
