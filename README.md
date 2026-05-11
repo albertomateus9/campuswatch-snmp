@@ -1,47 +1,28 @@
 # CampusWatch SNMP
 
-SNMP-based monitoring concept for school network infrastructure, designed for educational labs and hackathon scenarios.
+Conceito de monitoramento SNMP para infraestrutura escolar e campus, com dashboard estatico de demonstracao.
 
-## Overview
+**Demo:** https://albertomateus9.github.io/campuswatch-snmp/
 
-CampusWatch SNMP is a lightweight monitoring project for observing traffic and health indicators from switches and routers in a school or campus network. It is designed as a teaching artifact: students can connect a dashboard to an API, poll device metrics, and reason about operational visibility.
+## Visão Geral
 
-## Problem
+CampusWatch SNMP é um projeto de vitrine do portfólio técnico de Alberto Mateus P. da Gama. O objetivo é demonstrar maturidade profissional em redes, telecomunicações, automação, educação tecnológica e sistemas aplicados.
 
-Educational networks depend on stable connectivity, but many failures are discovered only after they affect classes. A monitoring baseline helps teams detect traffic bottlenecks, device overload, and degraded links earlier.
+## Contexto Profissional
 
-## Solution Concept
+- Infraestrutura de redes, telecomunicações e operação técnica.
+- Documentação clara para leitura pública no GitHub.
+- Dados sintéticos ou escopo conceitual, sem exposição de clientes, alunos ou documentos internos.
+- Estrutura pensada para evolução incremental.
 
-- Use SNMP agents on switches and routers as metric sources.
-- Implement a manager service that polls interface and health data.
-- Expose data to a dashboard for traffic and status visualization.
-- Use the project as a practical exercise in network observability.
+## Como Rodar
 
-## Architecture
+Abra `index.html` no navegador ou acesse a demo publicada no GitHub Pages.
 
-- SNMP agents: network devices that expose MIB data.
-- SNMP manager: backend service responsible for polling.
-- Dashboard: frontend surface for charts, interface status, and alerts.
+## Política De Dados
 
-## Suggested Stack
+Nenhum dado real de estudantes, clientes, credenciais, telefones, e-mails pessoais ou documentos internos é publicado neste repositório.
 
-- Python for polling and backend services.
-- React for dashboard experiments.
-- SNMP libraries for GET/WALK operations.
-- Charting library for traffic visualization.
+## Licença
 
-## Development Direction
-
-- Implement polling loops with safe timeouts.
-- Add device inventory configuration.
-- Add API endpoints for current status and historical samples.
-- Add dashboard charts for traffic per port.
-- Add tests for parsing and polling logic.
-
-## Professional Context
-
-This repository connects network monitoring, SNMP, education technology, and practical infrastructure troubleshooting.
-
-## License
-
-MIT. See [LICENSE](LICENSE).
+MIT. Consulte [LICENSE](LICENSE).
